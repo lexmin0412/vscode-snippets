@@ -1,0 +1,79 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"create a html div tag": {
+		"prefix": "div",
+		"body": [
+			"<div>",
+			"  $0",
+			"</div>"
+		],
+		"description": "create a html div tag"
+	},
+	"create a css module div tag": {
+		"prefix": "cf",
+		"body": [
+			"<div className={styles['$1']}>",
+				"$0",
+			"</div>"
+		],
+		"description": "折叠的css module div标签"
+	},
+	"create a css module unfold div tag": {
+		"prefix": "cuf",
+		"body": [
+			"<div className={styles['$1']}>$0</div>"
+		],
+		"description": "未折叠的css module div标签"
+	},
+	"create a react header component": {
+		"prefix": "ch",
+		"body": [
+			"<CommonHeader pageTitle={`${1}`} />"
+		]
+	},
+	"create a react component": {
+
+		"prefix": "rccc",
+		"body": [
+			"import React, { Component } from 'react'",
+			"import { connect } from 'react-redux'\n",
+
+			"import styles from './${1}.less';\n",
+
+			"@connect((state) => ({ config: state.config }))\n",
+			
+			"export default class componentName extends Component {\n",
+				
+				"\tconstructor(props){",
+					"\t\tsuper(props)",
+					"\t\tthis.state = {}",
+				"\t}\n",
+				
+				"\tcomponentDidMount() {}\n",
+				
+				"\trender() {",
+					"\t\treturn (",
+						"\t\t\t<div className={styles['${2:container}']}>",
+								"\t\t\t\t${3:内容}",
+						"\t\t\t</div>",
+					"\t\t)",
+				"\t}",
+			"}",
+		]
+	}
+}
