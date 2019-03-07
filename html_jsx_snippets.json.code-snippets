@@ -15,7 +15,7 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"create a html div tag": {
+	"create a div tag": {
 		"prefix": "div",
 		"body": [
 			"<div>",
@@ -24,6 +24,7 @@
 		],
 		"description": "create a html div tag"
 	},
+	// 
 	"create a css module div tag": {
 		"prefix": "cf",
 		"body": [
