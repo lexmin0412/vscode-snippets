@@ -76,5 +76,15 @@
 				"\t}",
 			"}",
 		]
+	},
+	"create a react img tag": {
+		"prefix": "cimg",
+		"body": [
+			"<img",
+				"\tsrc={${1}}",
+				"\talt=\"\"",
+				"\tonError={e=>e.target.src===\"${2}\"}",
+			"/>",
+		]
 	}
 }
