@@ -48,7 +48,6 @@
 		]
 	},
 	"create a react component": {
-
 		"prefix": "rccc",
 		"body": [
 			"import React, { Component } from 'react'",
