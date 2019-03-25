@@ -85,5 +85,34 @@
 				"\tonError={e=>e.target.src===\"${2}\"}",
 			"/>",
 		]
+	},
+	"create a taro component with ts grammer": {
+		"prefix": "taroccc",
+		"body": [
+			"import Taro, { Component } from '@tarojs/taro';",
+			"import { View, Text } from '@tarojs/components';\n",
+
+			"/**",
+			"* 组件需要的Props定义",
+			"*/",
+			"interface IProps {}\n",
+
+			"export default class ComponentName extends Component<IProps, {}> {\n",
+
+				"\tconfig = {",
+					"\t\tnavigationBarTitleText: '蜜仓'",
+				"\t};\n",
+
+				"\tstate = {};\n",
+
+				"\trender() {",
+					"\t\treturn (",
+						"\t\t\t<View className='container' >",
+							"\t\t\t\t<Text>文字</Text>",
+						"\t\t\t</View >",
+					"\t\t);",
+				"\t}",
+			"}",
+		]
 	}
 }
