@@ -1,0 +1,93 @@
+{
+	// Place your snippets for typescript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	// 创建一个taro service文件结构
+	"taro new Service": {
+		"prefix": "nsf",
+		"body": [
+			"import BaseRequest from '~/utils/request';\n",
+
+			"/**",
+			"* ${1}",
+			"*/",
+			"class ${1:IndexService} extends BaseRequest {",
+				"\tconstructor() {",
+					"\t\t// 指定host对象的Key，具体看 config文件",
+					"\t\tsuper({ hostKey: '${2:micangPhp}' });",
+				"\t}\n",
+
+				"\t// 获取商品详情",
+				"\tpublic ${3:queryCartGoodsList}(): Promise<any> {",
+					"\t\treturn this.post('${4:/mcang.php/Carts/showlist}');",
+				"\t}",
+			"}\n",
+
+			"export default new ${1}() as ${1};",
+
+		]
+	},
+	// 创建一个taro Model文件解构
+	"new Model File": {
+		"prefix": "nmf",
+		"body": [
+			"import ${1:IndexSerVice} from '~/services/cart.service';\n",
+
+			"export default {",
+				"\tnamespace: '${2:index}',   // 全局state上的key",
+				"\tstate: {},   // 初始值\n",
+
+				"\teffects: {",
+					"${3}",
+				"\t},\n",
+
+				"\treducers: {",
+					"\t\t${4}",
+				"\t}",
+			"};",
+		]
+	},
+	// 新建一个model effect
+	"taro new model effct": {
+		"prefix": "nme",
+		"body": [
+			"\t\t*${1:queryCartGoodsList}(action, func) {",
+				"\t\t\tconst { call, put, select } =  func;",
+				"\t\t\tconst { data } = yield call(CartService.queryCartGoodsList.bind(CartService));",
+				"\t\t\tif (data) {",
+					"\t\t\t\tyield put({",
+						"\t\t\t\t\ttype: 're_queryCartGoodsList',",
+						"\t\t\t\t\tpayload: {",
+							"\t\t\t\t\t\tcartList: data",
+						"\t\t\t\t\t}",
+					"\t\t\t\t});",
+				"\t\t\t}",
+				"\t\t\treturn data;",
+			"\t\t},",
+		]
+	},
+	// 新建一个model reducer
+	"taro new model reducer": {
+		"prefix": "nmr",
+		"body": [
+			"\t\tre_queryHotSaleList(state, action) {",
+				"\t\t\treturn {",
+					"\t\t\t\t...state,",
+					"\t\t\t\t...{",
+						"\t\t\t\t\thotSaleList: action.payload.${1:hotSaleList}",
+					"\t\t\t\t}",
+				"\t\t\t};",
+			"\t\t},",
+		]
+	}
+}

@@ -120,5 +120,19 @@
 				"\t}",
 			"}",
 		]
+	},
+	// 创建一个taro View标签
+	"create a taro view tag": {
+		"prefix": "View",
+		"body": [
+			"<View className='${0}'>${1}</View>"
+		]
+	},
+	// 创建一个taro Text标签
+	"create a taro Text tag": {
+		"prefix": "Text",
+		"body": [
+			"<Text className='${0}'>${1}</Text>"
+		]
 	}
 }
